@@ -1,0 +1,20 @@
+<html>
+<body>
+<script th:src="@{jquery-3.2.1.min.js}" />
+<h2>Please enter any message to send</h2>
+
+	<input type="text" id="message" />
+	<button type="button">Send</button>
+
+</body>
+</html>
+<script>
+$("button").click(function(){
+	$.ajax({
+		url: "/sendMessage?message="+$("#message").val(),
+  		success: function(result){
+    		$("#div1").html(result);
+  		}
+  	});
+});
+</script>
